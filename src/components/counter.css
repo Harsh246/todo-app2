@@ -1,0 +1,15 @@
+#counter{
+    position: absolute;
+    bottom:1rem;
+    background-color: rgb(254 179 44);
+    color:white;
+
+}
+td{
+    padding:0.5rem;
+    border:1px solid white;
+    margin: 0;
+}
+tr{
+    margin: 0;
+}

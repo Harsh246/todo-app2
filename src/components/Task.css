@@ -1,0 +1,26 @@
+#taskbox{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    width:100%;
+    background-color: rgb(210, 211, 218);
+    height:5rem;
+    margin-bottom: 1rem;
+}
+#taskbox span{
+    font-size: 20px;
+width: 50%;
+cursor: pointer;
+text-transform: uppercase;
+}
+#taskbox input{
+width:5%;
+height:20%;
+cursor: pointer;
+}
+#taskbox button{
+    background-color: rgba(255, 0, 0, 0.781);
+    font-size: 12px;
+}
