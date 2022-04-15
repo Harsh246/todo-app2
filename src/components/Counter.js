@@ -12,7 +12,7 @@ export default class counter extends Component {
 
     let completedTask = [];
     let pending=0;
-    completedTask = tasks.filter((item)=>item.completed==true);
+    completedTask = tasks.filter((item)=>item.completed===true);
     console.log(completedTask);
   if(completedTask.length){
     completed = completedTask.length;

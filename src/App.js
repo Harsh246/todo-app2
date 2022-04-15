@@ -56,7 +56,7 @@ export default class App extends Component {
   deleteTask = (id) => {
     console.log("inside delete");
     console.log(id);
-    var newTasks = this.state.tasks.filter((item) => item.id != id);
+    var newTasks = this.state.tasks.filter((item) => item.id !== id);
     console.log(newTasks);
 
     this.setState({ ...this.state, tasks: newTasks }, () => {
@@ -91,7 +91,7 @@ export default class App extends Component {
 
   completedtask = (id) => {
     var newTasks = this.state.tasks.map((item) => {
-      if (item.id == id)
+      if (item.id === id)
       item.completed = true;
 
       return item;
@@ -108,7 +108,7 @@ export default class App extends Component {
   {
      const updatedTasks = this.state.tasks.map((item)=>
      {
-       if(item.id==id)
+       if(item.id===id)
        {
          item.title = obj.title;
          item.description = obj.desc;
