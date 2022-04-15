@@ -79,6 +79,7 @@ export default class Container extends Component {
                 deletetask={this.props.deletetask}
                   showmodal={this.props.showModal}
                   completed={this.props.completed}
+                  showEdit = {this.props.showEdit}
               /></li>
             );
           })}

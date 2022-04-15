@@ -27,6 +27,11 @@ export default class Task extends Component {
     this.props.completed(this.props.task.id);
   };
 
+  handleEdit = ()=>
+  {
+    this.props.showEdit(this.props.task.id);
+  }
+
   render() {
     const { task } = this.props;
 

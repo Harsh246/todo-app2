@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Container from "./components/Container";
 import Modal from "./components/Modal.js";
 import Counter from "./components/Counter";
+import EditModal from "./components/EditModal";
 
 export default class App extends Component {
   //state consist of two properties:-  1) array of tasks object  2) modal parameters and show
@@ -16,6 +17,11 @@ export default class App extends Component {
         title: "ye sab doglapan hai",
         description: "Bhai kya kar raha hai tu",
       },
+      edit: {
+        show: false,
+        id:0,
+        updated:''
+      }
     };
   }
   // add task to the state by passing this func as props to child having title and description as arguments.
@@ -97,8 +103,55 @@ export default class App extends Component {
     });
   };
 
+
+  handleEdit=(id, obj)=>
+  {
+     const updatedTasks = this.state.tasks.map((item)=>
+     {
+       if(item.id==id)
+       {
+         item.title = obj.title;
+         item.description = obj.desc;
+       }
+       return item;
+     });
+
+
+     this.setState({
+       ...this.state,
+       tasks: updatedTasks
+     });
+  };
+
+
+showEdit = (id) => {
+  console.log("inside edit");
+  this.setState({
+    ...this.state,
+    edit: {
+      show: true,
+      id,
+      updated:"",
+    }, 
+  });
+};
+// passing this an a prop to Modal component.
+closeEdit = () => {
+  this.setState({
+    ...this.state,
+    edit: {
+      show: false,
+      id: 0,
+      updated: "",
+    },
+  });
+};
+
+
+
+
   render() {
-    const { tasks, modal } = this.state;
+    const { tasks, modal, edit } = this.state;
 
     return (
       <div>
@@ -114,6 +167,11 @@ export default class App extends Component {
           />
         ) : null}
 
+        {edit.show && <EditModal id={edit.id} updated={edit.updated} close={this.closeEdit} handleEdit={this.handleEdit}/>}
+
+
+
+
         <Counter tasks={tasks} />
         <div id="main">
           {/* // left gif image */}
@@ -128,6 +186,8 @@ export default class App extends Component {
               deletetask={this.deleteTask}
               showModal={this.showModal}
               completed={this.completedtask}
+              showEdit={this.showEdit}
+              
             />
           </div>
         </div>
