@@ -5,6 +5,7 @@ export default class Task extends Component {
   constructor() {
     super();
     this.myRef = React.createRef();
+    this.titlefield = React.createRef();
   }
   handleDelete = () => {
     console.log(this.props.task.id);
@@ -21,9 +22,9 @@ export default class Task extends Component {
     e.target.disabled = "true";
     console.log(this.myRef.current);
     this.myRef.current.style.background = "#77ce7e";
-    this.myRef.current.style.textDecoration = "line-through";
+    this.titlefield.current.style.textDecoration = "line-through";
 
-    this.props.completed();
+    this.props.completed(this.props.task.id);
   };
 
   render() {
@@ -33,8 +34,9 @@ export default class Task extends Component {
       <div id="taskbox" ref={this.myRef}>
         <input type="checkbox" onClick={this.completed} disabled={false}  title="completed?"/>
 
-        <span title="Tap me for description" onClick={this.handleDescription}>{task.title}</span>
+        <span title="Tap me for description" ref={this.titlefield} onClick={this.handleDescription}>{task.title}</span>
 
+        <button onClick={this.handleEdit} className="edit-button">EDIT</button>
         <button onClick={this.handleDelete}>DELETE</button>
       </div>
     );

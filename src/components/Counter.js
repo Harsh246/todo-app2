@@ -5,7 +5,23 @@ export default class counter extends Component {
 
  
   render() {
-    const { tasks,  completed } = this.props;
+
+    const { tasks } = this.props;
+    console.log(tasks);
+    let completed = 0;
+
+    let completedTask = [];
+    let pending=0;
+    completedTask = tasks.filter((item)=>item.completed==true);
+    console.log(completedTask);
+  if(completedTask.length){
+    completed = completedTask.length;
+ 
+}
+   pending = tasks.length - completed;
+  
+
+
     return (
         <div id="counter">
             
@@ -18,7 +34,7 @@ export default class counter extends Component {
   </tr>
   <tr>
     <td>Tasks Pending:</td>
-    <td>{tasks.length-completed}</td>
+    <td>{pending}</td>
   </tr>
   <tr>
     <td>Tasks Completed:</td>
