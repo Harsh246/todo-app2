@@ -52,6 +52,7 @@
     height:10vh;
     color:rgb(28 31 71);
     text-decoration: underline;
+    font-size: larger;
 
 }
 ::-webkit-scrollbar {

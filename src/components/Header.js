@@ -1,10 +1,15 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import ReactTypingEffect from 'react-typing-effect';
+
 
 export default class header extends Component {
   render() {
     return (
         <div id="header">
-           <h3>Hello Guyz!! Kaam Karlo..</h3> 
+           <ReactTypingEffect
+        text={["Hello Guyz!! Kaam Karlo..."]}
+      />
+        
       </div>
     )
   }
